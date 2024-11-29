@@ -67,7 +67,7 @@ Generate builders for your Java classes effortlessly with this plugin! It automa
 ## Installation
 
 1. **Download the Plugin**
-   - Get the latest version of the plugin from the [JetBrains Plugin Repository](https://plugins.jetbrains.com/) or the [Releases](#) page.
+   - Get the latest version of the plugin from the [JetBrains Plugin Repository](https://plugins.jetbrains.com/plugin/25961-new-builder-generator) page.
 
 2. **Install via IDE**
    - Open your JetBrains IDE (e.g., IntelliJ IDEA).
