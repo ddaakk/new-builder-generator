@@ -1,0 +1,86 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>new-builder-generator</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
+    <name>new-builder-generator</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor email="sangwoo98.kang@gmail.com" url="https://rnesw.blog">ddaakk</vendor>
+
+    <description><![CDATA[
+Generate builders for your Java classes effortlessly with this plugin! It automates the creation of builder classes for your existing classes or records in Java, enhancing your productivity and code maintainability.
+
+**Features:**
+
+- **Builder Generation for Classes and Records:**
+  - Supports both standard Java classes and records.
+  - Generates builder classes with customizable names and package destinations.
+
+- **Inner and Separate Builder Classes:**
+  - Option to create builders as inner classes or as separate files.
+  - Handles naming conflicts and notifies if a builder already exists.
+
+- **Customizable Method Prefix:**
+  - Define your own method prefix for builder methods (e.g., `with`, `set`, `add`).
+
+- **'But' Method Inclusion:**
+  - Optionally include a `'but'` method for cloning and modifying existing builders.
+
+- **Use Existing Constructors or Setters:**
+  - Choose to utilize existing constructors or setter methods in your class.
+  - Provides selection dialogs to pick specific constructors or setters.
+
+- **User-Friendly Dialog Interface:**
+  - Intuitive dialog to configure all settings before generating the builder.
+  - Remembers recent package destinations for convenience.
+
+**Benefits:**
+
+- **Saves Time and Reduces Boilerplate:**
+  - Automates the repetitive task of writing builder classes manually.
+
+- **Improves Code Readability:**
+  - Generates clean and consistent builder code, enhancing maintainability.
+
+- **Increases Flexibility:**
+  - Customize builder generation to fit your coding standards and project needs.
+
+**Usage:**
+
+1. Place your cursor inside the class or record for which you want to generate a builder.
+2. Invoke the builder generation action (e.g., via the context menu or a keyboard shortcut).
+3. Configure your builder settings in the dialog that appears.
+4. Click **OK** to generate the builder class.
+
+**Note:** The plugin ensures that existing builders are not overwritten and alerts you if a builder with the same name already exists.
+
+]]></description>
+
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.java</depends>
+
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+
+    </extensions>
+
+    <actions>
+        <!-- 빌더 생성/탐색 액션 -->
+        <action id="BuilderGenerator"
+                class="BuilderGenerationAction"
+                text="Builder"
+                description="Generate builder or navigate between class and builder">
+            <add-to-group group-id="JavaGenerateGroup1" anchor="after" relative-to-action="GenerateGetterAndSetter"/>
+            <!-- Windows/Linux 단축키 -->
+            <keyboard-shortcut first-keystroke="alt shift B" keymap="$default"/>
+            <!-- macOS 단축키 -->
+            <keyboard-shortcut first-keystroke="meta shift B" keymap="Mac OS X"/>
+        </action>
+    </actions>
+</idea-plugin>
